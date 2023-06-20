@@ -17,6 +17,27 @@ const alatShow = async (req, res) => {
 	}
 };
 
+const alatCreate = async (req, res) => {
+	const newAlat = new Alat({
+		nama: req.body.nama,
+		deskripsi: req.body.deskripsi,
+		foto: req.body.foto,
+	});
+
+	try {
+		const savedAlat = await newAlat.save();
+		res.json({
+			status: "success",
+			data: savedAlat,
+		});
+	} catch (err) {
+		res.status(500).json({
+			status: "error",
+			message: err.message,
+		});
+	}
+};
+
 const alatDetail = async (req, res) => {
 	try {
 		const alat = await Alat.findById(req.params.id);
@@ -40,5 +61,6 @@ const alatDetail = async (req, res) => {
 
 module.exports = {
 	alatShow,
+	alatCreate,
 	alatDetail,
 };
