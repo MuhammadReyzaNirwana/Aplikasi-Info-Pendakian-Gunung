@@ -1,0 +1,16 @@
+{
+	"version": 2,
+	"name": "my-rest-api",
+	"builds": [
+		{
+			"src": "./api_server/routes/index.js",
+			"use": "@vercel/node"
+		}
+	],
+	"routes": [
+		{
+			"src": "/(.*)",
+			"dest": "./api_server/routes/index.js"
+		}
+	]
+}
