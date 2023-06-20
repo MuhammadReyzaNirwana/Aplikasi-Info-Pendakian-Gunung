@@ -3,7 +3,7 @@
 	"name": "my-rest-api",
 	"builds": [
 		{
-			"src": "./api_server/routes/index.js",
+			"src": "./app.js",
 			"use": "@vercel/node"
 		}
 	],
