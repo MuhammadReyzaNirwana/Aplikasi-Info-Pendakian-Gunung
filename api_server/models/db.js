@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 
 mongoose.set("strictQuery", false);
-let dbLink = "mongodb+srv://dryzanetwork:ayamgoreng123@cluster0.c2x1qws.mongodb.net/my_api?retryWrites=true&w=majority";
 
-mongoose.connect(dbLink, { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 mongoose.connection.on("connected", () => {
-	console.log(`Mongoose connected to ${dbLink}`);
+	console.log(`Mongoose connected to ${process.env.MONGODB_URI}`);
 });
+
 mongoose.connection.on("error", (err) => {
 	console.log("Mongoose connection error:", err);
 });
