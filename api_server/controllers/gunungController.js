@@ -1,31 +1,16 @@
 const mongoose = require("mongoose");
 
 let Gunung = mongoose.model("Gunung");
-const { send, json } = require("micro");
 
-// const gunungShow = async (req, res) => {
-// 	try {
-// 		const gunung = await Gunung.find({});
-// 		res.status(200).json({
-// 			status: "success",
-// 			data: gunung,
-// 		});
-// 	} catch (err) {
-// 		res.status(500).json({
-// 			status: "failed",
-// 			error: err,
-// 		});
-// 	}
-// };
 const gunungShow = async (req, res) => {
 	try {
 		const gunung = await Gunung.find({});
-		send(res, 200, {
+		res.status(200).json({
 			status: "success",
 			data: gunung,
 		});
 	} catch (err) {
-		send(res, 500, {
+		res.status(500).json({
 			status: "failed",
 			error: err,
 		});

@@ -1,8 +1,5 @@
-// var express = require("express");
-// var router = express.Router();
-
-const { Router } = require("micro-fork");
-const router = new Router();
+var express = require("express");
+var router = express.Router();
 
 const gunungController = require("../controllers/gunungController");
 const alatController = require("../controllers/alatController");
